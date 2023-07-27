@@ -13,7 +13,7 @@ mkdir $HOME/tmp
 cd $HOME/tmp
 
 wget https://dl.dod.cyber.mil/wp-content/uploads/pki-pke/zip/unclass-certificates_pkcs7_v5-6_dod.zip
-unzip -f unclass-certificates_pkcs7_v5-6_dod.zip
+unzip -o unclass-certificates_pkcs7_v5-6_dod.zip
 
 # need to get location of .so file
 libloc=$(sudo find / -name "libcoolkeypk11.so" 2>/dev/null | head -n 1)
