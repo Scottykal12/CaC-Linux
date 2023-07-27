@@ -26,7 +26,8 @@ certutil -d $certfolder -N --empty-password
 modutil -dbdir sql:$certfolder -add "CAC Module" -libfile $libloc
 
 for i in $(find Certificates_PKCS7_v5.6_DoD/ -name "*.p7b"); do
-    certutil -A -n $i -t TC,C,T -d $certfolder -a -i $i
+    # certutil -A -n $i -t TC,C,T -d $certfolder -a -i $i
+    echo $i
     done
 
 rm -rf $HOME/tmp/
