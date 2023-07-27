@@ -20,10 +20,12 @@ libloc=$(sudo find / -name "libcoolkeypk11.so" 2>/dev/null | head -n 1)
 certfolder=/$HOME/.mozilla/certificates/
 
 echo $libloc
-read pause
+read -p pause
 
 certutil -d $certfolder -N --empty-password
+read -p pause
 modutil -dbdir sql:$certfolder -add "CAC Module" -libfile $libloc
+read -p pause
 
 for i in $(find Certificates_PKCS7_v5.6_DoD/ -name "*.p7b"); do
     certutil -A -n $i -t TC,C,T -d $certfolder -a -i $i
