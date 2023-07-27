@@ -17,7 +17,7 @@ unzip -o unclass-certificates_pkcs7_v5-6_dod.zip
 
 # need to get location of .so file
 libloc=$(sudo find / -name "libcoolkeypk11.so" 2>/dev/null | head -n 1)
-certfolder=/$HOME/.mozilla/certificates/
+certfolder=$HOME/.mozilla/certificates/
 
 echo $libloc
 read -p pause
