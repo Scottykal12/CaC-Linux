@@ -1,0 +1,1 @@
+`wget -O - https://raw.githubusercontent.com/Scottykal12/CaC-Linux/main/cac-linux.sh | bash`
