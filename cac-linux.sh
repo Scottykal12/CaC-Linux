@@ -6,6 +6,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install firefox -y
 sudo apt install coolkey -y
+sudo apt install pcscd -y
 
 mkdir $HOME/.mozilla/certificates
 mkdir $HOME/tmp
