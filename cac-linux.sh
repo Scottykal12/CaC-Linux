@@ -19,7 +19,7 @@ unzip unclass-certificates_pkcs7_v5-6_dod.zip
 libloc=$(sudo find / -name "libcoolkeypk11.so" 2>/dev/null | head -n 1)
 certfolder=/$HOME/.mozilla/certificates/
 
-certutil -d $certfolder -N
+certutil -d $certfolder -N --empty-password
 modutil -dbdir sql:$certfolder -add "CAC Module" -libfile $libloc
 
 for i in $(find Certificates_PKCS7_v5.6_DoD/ -name "*.p7b"); do
