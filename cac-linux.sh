@@ -9,7 +9,7 @@ sudo apt install coolkey -y
 sudo apt install pcscd -y
 sudo apt install openssl -y
 
-mkdir $HOME/.mozilla/certificates
+mkdir /usr/lib/mozilla/certificates
 mkdir $HOME/tmp
 mkdir $HOME/tmp/rootCAcer
 
@@ -20,7 +20,9 @@ unzip -o unclass-certificates_pkcs7_v5-6_dod.zip
 
 # need to get location of .so file
 libloc=$(sudo find / -name "libcoolkeypk11.so" 2>/dev/null | head -n 1)
-certfolder=$HOME/.mozilla/certificates/
+certfolder=/usr/lib/mozilla/certificates
+# /usr/lib/mozilla/certificates
+# $HOME/.mozilla/certificates/
 rootCAcer=$HOME/tmp/rootCAcer
 
 echo $libloc
