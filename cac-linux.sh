@@ -9,9 +9,11 @@ sudo apt install coolkey -y
 sudo apt install pcscd -y
 sudo apt install openssl -y
 
-mkdir /usr/lib/mozilla/certificates
+sudo mkdir /usr/lib/mozilla/certificates
 mkdir $HOME/tmp
 mkdir $HOME/tmp/rootCAcer
+
+sudo chmod 777 /usr/lib/mozilla/certificates
 
 cd $HOME/tmp
 
