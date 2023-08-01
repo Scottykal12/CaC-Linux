@@ -14,12 +14,9 @@ mkdir $HOME/tmp
 mkdir $HOME/tmp/rootCAcer
 sudo mkdir -p /etc/firefox/policies
 
+chmod 775 /etc/firefox -R
+
 # sudo touch /etc/firefox/policies.json
-
-cd /etc/firefox/
-
-
-# why the fuck am i getting permission denied!!!?????
 sudo printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' > policies.json
 
 sudo chmod 777 /usr/lib/mozilla/certificates
