@@ -12,12 +12,11 @@ sudo apt install openssl -y
 sudo mkdir /usr/lib/mozilla/certificates
 mkdir $HOME/tmp
 mkdir $HOME/tmp/rootCAcer
-sudo mkdir -p /etc/firefox/policies
-
-sudo chmod 775 /etc/firefox -R
+sudo mkdir -p /usr/lib/firefox/distribution
 
 # sudo touch /etc/firefox/policies.json
-printf '{\n "policies": {\n  "Certificates": {\n   "ImportEnterpriseRoots": true\n  }\n }\n}' | sudo tee policies.json
+
+printf '{\n "policies": {\n  "Certificates": {\n   "ImportEnterpriseRoots": true\n  }\n }\n}' | sudo tee /usr/lib/firefox/distribution/policies.json
 
 sudo chmod 777 /usr/lib/mozilla/certificates
 
@@ -41,7 +40,8 @@ modutil -dbdir sql:$certfolder -add "CAC Module" -libfile $libloc
 for i in $(find $PWD/Certificates_PKCS7_v5.6_DoD/ -name "*Root_CA*"); do
     name=$(basename $i .der.p7b)
     openssl pkcs7 -print_certs -inform DER -in $i -out $name.cer
-    certutil -A -n $name -t TC,C,T -d $certfolder -a -i $name.cer
+    mv $name.cer $certfolder
+    # certutil -A -n $name -t TC,C,T -d $certfolder -a -i $name.cer
     done
 
 # rm -rf $HOME/tmp/
