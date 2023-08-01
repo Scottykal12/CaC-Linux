@@ -18,6 +18,8 @@ sudo mkdir -p /etc/firefox/policies
 
 cd /etc/firefox/
 
+
+# why the fuck am i getting permission denied!!!?????
 sudo printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' > policies.json
 
 sudo chmod 777 /usr/lib/mozilla/certificates
