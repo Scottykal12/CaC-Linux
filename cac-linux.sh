@@ -9,11 +9,16 @@ sudo apt install coolkey -y
 sudo apt install pcscd -y
 sudo apt install openssl -y
 
-sudo mkdir -p /usr/lib64/mozilla/certificates
+sudo mkdir /usr/lib/mozilla/certificates
 mkdir $HOME/tmp
 mkdir $HOME/tmp/rootCAcer
+sudo mkdir -p /etc/firefox/policies
 
-sudo chmod 777 /usr/lib64/mozilla/certificates
+touch /etc/firefox/policies.json
+
+printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' > /etc/firefox/policies.json
+
+sudo chmod 777 /usr/lib/mozilla/certificates
 
 cd $HOME/tmp
 
@@ -22,7 +27,7 @@ unzip -o unclass-certificates_pkcs7_v5-6_dod.zip
 
 # need to get location of .so file
 libloc=$(sudo find / -name "libcoolkeypk11.so" 2>/dev/null | head -n 1)
-certfolder=/usr/lib64/mozilla/certificates
+certfolder=/usr/lib/mozilla/certificates
 # /usr/lib/mozilla/certificates
 # $HOME/.mozilla/certificates/
 rootCAcer=$HOME/tmp/rootCAcer
