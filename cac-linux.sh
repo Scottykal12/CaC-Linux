@@ -17,7 +17,7 @@ sudo mkdir -p /etc/firefox/policies
 sudo chmod 775 /etc/firefox -R
 
 # sudo touch /etc/firefox/policies.json
-sudo printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' > policies.json
+printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' | sudo tee policies.json
 
 sudo chmod 777 /usr/lib/mozilla/certificates
 
