@@ -14,9 +14,11 @@ mkdir $HOME/tmp
 mkdir $HOME/tmp/rootCAcer
 sudo mkdir -p /etc/firefox/policies
 
-sudo touch /etc/firefox/policies.json
+# sudo touch /etc/firefox/policies.json
 
-sudo printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' > /etc/firefox/policies.json
+cd /etc/firefox/
+
+sudo printf '{\n "policies": {\n  "ImportEnterpriseRoots": true\n }\n}' > policies.json
 
 sudo chmod 777 /usr/lib/mozilla/certificates
 
